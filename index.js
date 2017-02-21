@@ -1,6 +1,7 @@
 var http = require('http');
+var fs = require('fs');
 http.createServer(function(req,res){
-   res.end('Hello <Golden Fingers ..Start Coding Guys>');
+   fs.readFileSync(__dirname,'/form.html',utf8);
  }).listen(8080,function(){
    console.log('Listening on 8080');
  });
