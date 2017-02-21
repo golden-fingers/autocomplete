@@ -1,7 +1,7 @@
 var http = require('http');
 var fs = require('fs');
 console.log("after fs require");
-var result = fs.readFileSync(__dirname,'/form.html',utf8);
+var result = fs.readFileSync('./form.html','utf8');
 console.log("result" ,result);
 http.createServer(function(req,res){
   console.log("inside http createServer");
