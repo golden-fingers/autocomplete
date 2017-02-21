@@ -1,1 +1,45 @@
-<h1>Go GoldenFingers .. Start Coding</h1>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Autocomplete Service</title>
+	<style type="text/css">
+
+	  body { 
+       background:lightblue; font-family:"Open Sans";font-weight:400; 
+       padding-top:30px; text-align:center;
+       color: #276869;
+     
+       }
+
+      #txtacomp{
+      	border: 4px solid #137da0;
+        font-weight: bold;
+        color: black;
+        padding: 1px 1px;
+        cursor: pointer;
+        border-radius: 5px;
+        
+
+      }
+
+      label{
+      	text-align: center;
+      	color: #066775;
+      	font-weight: bold;
+      	font-style: italic;
+      	font-size: 50px;
+
+      }
+	</style>
+</head>
+<body>
+
+  <label>Auto Complete </label>  
+  <br><br>
+  <input id="txtacomp" list="dlacomp" type="txt"/>
+  <datalist id="dlacomp">
+   
+  </datalist>
+
+</body>
+</html>
