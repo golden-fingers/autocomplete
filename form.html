@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Autocomplete Service</title>
+	<style type="text/css">
+		.cls{
+		width:100%;
+		height:50px;
+		background-color:black;
+
+		}
+
+	  body {
+       font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+        text-align: center;
+
+       }
+
+      #txtacomp{
+      	width:230px;
+	height:30px;
+	outline:none;
+	padding:0px 10px;
+	margin:0px auto;
+	display:block;
+
+
+      }
+
+      label{
+      	text-align: center;
+      	color: #000000;
+      	font-weight: bold;
+      	font-style: italic;
+      	font-size: 30px;
+
+
+      }
+	</style>
+</head>
+<body>
+
+	<div class="cls">
+	</div>
+  <form id="send" action="/form" method="POST">
+  <label>Auto Complete</label>
+  <br><br>
+  <input id="txtacomp" list="dlacomp" type="text" oninput = "sendform()"/>
+  <datalist id="dlacomp">
+
+  </datalist>
+  </form>
+
+	<script type="text/javascript">
+	//document.getElementById("txtacomp")
+
+		function sendform(){
+			var http = new XMLHttpRequest();
+			var params =  document.getElementById('txtacomp').value;
+			var values;
+			var datalist = document.getElementById('dlacomp');
+			console.log(params);
+			http.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+
+						values = JSON.parse(http.responseText);
+						console.log(values,typeof values);
+						values.forEach(function(item){
+							var options = document.createElement('options');
+							options.value = item;
+               console.log(options.value);
+							datalist.appendChild(options);
+							console.log(datalist);
+					});
+						}
+					};
+
+			http.open("POST", "http://localhost:8076/" + params, true);
+			http.send();
+		}
+	</script>
+</body>
+</html>
