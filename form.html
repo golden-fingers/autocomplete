@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Autocomplete Service</title>
+  <meta charset="UTF-8">
+  <title>Autocomplete Service</title>
 	<style type="text/css">
 		.cls{
 		width:100%;
@@ -41,44 +42,46 @@
 </head>
 <body>
 
-	<div class="cls">
-	</div>
-  <form id="send" action="/form" method="POST">
-  <label>Auto Complete</label>
-  <br><br>
-  <input id="txtacomp" list="dlacomp" type="text" oninput = "sendform()"/>
-  <datalist id="dlacomp">
+		<div class="cls">
+		</div>
+	  <form id="send" action="/form" method="POST">
+	  <label>Auto Complete</label>
+	  <br><br>
+	  <input id="txtacomp" list="dlid" type="text" oninput = "sendform()"/>
+	  <datalist id="dlid" name = "dlid1">
 
-  </datalist>
-  </form>
+	  </datalist>
+	  </form>
 
-	<script type="text/javascript">
-	//document.getElementById("txtacomp")
+		<script type="text/javascript">
+		//document.getElementById("txtacomp")
 
-		function sendform(){
-			var http = new XMLHttpRequest();
-			var params =  document.getElementById('txtacomp').value;
-			var values;
-			var datalist = document.getElementById('dlacomp');
-			console.log(params);
-			http.onreadystatechange = function() {
-					if (this.readyState == 4 && this.status == 200) {
+			function sendform(){
+				var http = new XMLHttpRequest();
+				var params =  document.getElementById('txtacomp').value;
+				var values;
+	      var options = '';
 
-						values = JSON.parse(http.responseText);
-						console.log(values,typeof values);
-						values.forEach(function(item){
-							var options = document.createElement('options');
-							options.value = item;
-               console.log(options.value);
-							datalist.appendChild(options);
-							console.log(datalist);
-					});
+				http.onreadystatechange = function() {
+						if (this.readyState == 4 && this.status == 200) {
+
+							values = JSON.parse(http.responseText);
+							console.log(values);
+
+							for(var i = 0; i < values.length; i++){
+	              options += '<option value="'+values[i]+'" />';
+								console.log(i);
+								}
+
+	            document.getElementById('dlid').innerHTML = options;
 						}
-					};
 
-			http.open("POST", "http://localhost:8076/" + params, true);
-			http.send();
-		}
-	</script>
+						}
+
+				http.open("POST", "http://localhost:8076/" + params, true);
+				http.send();
+			}
+		</script>
 </body>
 </html>
+<html>
