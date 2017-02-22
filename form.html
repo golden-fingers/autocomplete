@@ -8,12 +8,12 @@
 		height:50px;
 		background-color:black;
 		}
- 
-	  body { 
-       background:white; font-family:"Open Sans";font-weight:400; 
+
+	  body {
+       background:white; font-family:"Open Sans";font-weight:400;
        text-align:center;
        color: #276869;
-		
+
        }
 
       #txtacomp{
@@ -23,7 +23,7 @@
         padding: 1px 1px;
         cursor: pointer;
         border-radius: 5px;
-        
+
 
       }
 
@@ -40,14 +40,25 @@
 <body>
 	<div class="cls">
 	</div>
-  <form action="/form" method="POST">
-  <label>Auto Complete</label>  
+  <form id="send" action="/form" method="POST">
+  <label>Auto Complete</label>
   <br><br>
-  <input id="txtacomp" list="dlacomp" type="txt" oninput="myFunction()"/>
+  <input id="txtacomp" list="dlacomp" type="text" oninput="sendform()"/>
   <datalist id="dlacomp">
-   
+
   </datalist>
   </form>
+	<script type="text/javascript">
+		function sendform(){
+			console.log("Inside sendForm");
+			var http = new XMLHttpRequest();
+			var params =  document.getElementById('txtacomp').value;
+			console.log(params);
+    	http.open("GET", "http://localhost:8000/" + params, true);
+
+    	//http.send(params);
+		}
+	</script>
 
 </body>
 </html>
