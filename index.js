@@ -1,5 +1,6 @@
 var http = require('http');
 var fs = require('fs');
+var queryString = require('querystring');
 var bodyparser = require('./bodyparser.js');
 var url = require('url');
 //console.log("after fs require");
@@ -12,14 +13,11 @@ try {
 if (req.method =='POST') {
    bodyparser.converttoarray(msg,req,res);
 }
-
-//  console.log("frontendresult",frontendresult);
-
 res.end(result);
 } catch (e) {
   console.log(e);
 }
 
  }).listen(process.env.PORT || 8076 ,function(){
-   console.log('Listening on 8080');
+   console.log('Listening on 8076');
  });
