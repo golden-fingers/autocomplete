@@ -8,7 +8,8 @@
 ##How it works ?
 - Java Script and Node Js does most of the thing, simple HTML5 and CSS3 properties for a proper view, we used JSON to handle the suggestions file which contains great number of words.
 ***
-## Screenshot:
+##Screenshot:
+
 ![Alt Text](https://github.com/golden-fingers/autocomplete/blob/master/Untiddtled.png)
 
 ***
