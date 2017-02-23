@@ -48,7 +48,7 @@
 	  <label>Auto Complete</label>
 	  <br><br>
 	  <input id="txtacomp" list="dlid" type="text" oninput = "sendform()"/>
-	  <datalist id="dlid" name = "dlid1">
+	  <datalist id="dlid" >
 
 	  </datalist>
 	  </form>
@@ -59,24 +59,36 @@
 			function sendform(){
 				var http = new XMLHttpRequest();
 				var params =  document.getElementById('txtacomp').value;
+          var datalist=document.getElementById('dlid');
 				var values;
-	      var options = '';
+        var option;
 
 				http.onreadystatechange = function() {
 						if (this.readyState == 4 && this.status == 200) {
+              document.getElementById('dlid').innerHTML="";
+							values = http.responseText;
+							values = JSON.parse(values);
+              console.log(values);
+              console.log(typeof values);
 
-							values = JSON.parse(http.responseText);
-							console.log(values);
+              values.forEach(function(item) {
+                console.log("asd");
+              option = document.createElement('option');
+              option.value = item;
 
-							for(var i = 0; i < values.length; i++){
-	              options += '<option value="'+values[i]+'" />';
-								console.log(i);
+              datalist.appendChild(option);
+               });
+              // document.getElementById('dlid').innerHTML = "";
+							// for(var i = 0; i < values.length; i++){
+	            //   options += '<option value="'+values[i]+'" />';
+              //   document.getElementById('dlid').innerHTML = options;
+
 								}
 
-	            document.getElementById('dlid').innerHTML = options;
-						}
 
 						}
+
+
 
 				http.open("POST", "http://localhost:8076/" + params, true);
 				http.send();
