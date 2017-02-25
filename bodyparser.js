@@ -1,9 +1,10 @@
 var fs = require('fs');
 //var arr;
 var search = require('./searchdata.js');
-function converttoarray(searchdata,req,res,arr) {
+var arr =[];
+function converttoarray(searchdata,req,res) {
 
-  if(arr.length == 0){
+  if(arr == ""){
     var txt = fs.readFileSync('./words.txt','utf8');
     arr = txt.split("\n");
    console.log("before search");

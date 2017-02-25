@@ -14,40 +14,41 @@
 
       label{
 
-    background-position: 10px 10px; 
+    background-position: 10px 10px;
     padding: 12px 20px 12px 40px;
 
 
       }
-     
+
   </style>
   <body>
- <form id="send" action="/form" method="POST">
+
   <div class="dv"><label>Search Engine</label>
-    
+  <input id="datasend" list = "datalist" oninput="sendForm()"></input>
+	<datalist id="datalist"></datalist>
+
+	</div>
+
 <script>
-      var params =  document.getElementById('txtacomp').value;
-			console.log("Inside sendForm");
+function sendForm(){
+      var params =  document.getElementById('datasend').value;
 			var http = new XMLHttpRequest();
       http.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
+			//console.log(http.responseText);
+			var values  = JSON.parse(http.responseText);
+       console.log(values);
+			 var options = '';
 
-     console.log("responsetext",http.responseText);
+	    for(var i = 0; i < values.length; i++){
+				options += '<option value="'+values[i]+'" />';
+			}
+	     document.getElementById('datalist').innerHTML = options;
+
     }
 };
-      console.log(typeof );
-     var values  = JSON.parse(http.responseText);
-      console.log(typeof values);
 
-     values.forEach(function(item) {
-       console.log("asd");
-       var option = document.createElement('option');
-       option.value = item;
-       console.log(option);
-       datalist.appendChild(option);
-                       });
 
-			console.log(params);
     	http.open("POST", "http://localhost:8076/" + params, true);
     	http.send();
 		}
