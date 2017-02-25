@@ -1,5 +1,5 @@
 var fs = require('fs');
-var result = fs.readFileSync('./form.html','utf8');
+var result = fs.readFileSync('./app/form.html','utf8');
 
 function show(res){
   res.end(result);
