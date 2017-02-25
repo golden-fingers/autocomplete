@@ -6,13 +6,13 @@ var url = require('url');
 http.createServer(function(req,res){
   var msg = req.url.replace("/" , "");
   var path = req.method + ' ' + req.url.charAt(0);
-  var arr =[];
 
  try {
+   //console.log(res);
+   router.router(msg,req,res,path);
 
-   router.router(msg,req,res,arr,path);
  } catch(err) {
-
+   console.log(err);
    res.end('Not found');
 }
 

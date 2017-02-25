@@ -1,5 +1,10 @@
 var fs = require('fs');
 var result = fs.readFileSync('./form.html','utf8');
-console.log(result);
 
+function show(res){
   res.end(result);
+}
+
+  module.exports = {
+    show : show
+  }

@@ -1,13 +1,14 @@
-function router(msg,req,res,arr,path) {
+function router(msg,req,res,path) {
   if(path == 'GET /'){
-    require('./readform.js')
+    var show = require('./readform.js')
+    show.show(res);
     console.log("get");
   }else{
-    require('./bodyparser.js')
+    var createarraysearch = require('./bodyparser.js')
+    createarraysearch.converttoarray(msg,req,res);
     console.log("post");
   }
 }
 module.exports = {
   router : router
-
 }
