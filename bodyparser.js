@@ -1,14 +1,17 @@
 var fs = require('fs');
-var arr;
+//var arr;
 var search = require('./searchdata.js');
 function converttoarray(searchdata,req,res,arr) {
-  if(arr == null){
+
+  if(arr.length == 0){
     var txt = fs.readFileSync('./words.txt','utf8');
     arr = txt.split("\n");
    console.log("before search");
-   ready = search.searchdata(searchdata,req,res,arr);
+   search.searchdata(searchdata,req,res,arr);
+   console.log("NULL");
   } else {
-   ready = search.searchdata(searchdata,req,res,arr);
+   search.searchdata(searchdata,req,res,arr);
+   console.log("NOT nULL");
    }
 }
 module.exports = {
