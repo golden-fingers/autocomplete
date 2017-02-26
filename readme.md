@@ -1,4 +1,7 @@
-# Simple Search Engine
+
+
+<a href="https://codeclimate.com/github/golden-fingers/autocomplete"><img src="https://codeclimate.com/github/golden-fingers/autocomplete/badges/gpa.svg" /></a>
+
 ***
 ![Alt Text](https://github.com/golden-fingers/autocomplete/blob/master/searchengines.png)
 ***
