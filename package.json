@@ -4,7 +4,8 @@
   "description": "create suggession for users search",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "node tests/index.js"
   },
   "repository": {
     "type": "git",
