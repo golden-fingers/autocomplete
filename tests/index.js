@@ -1,7 +1,7 @@
 var shot = require('shot');
 var test = require('tape');
 
-var homepagehandler = require('./server/readform.js');
+var homepagehandler = require('../Server/readform.js');
 
 console.log(homepagehandler);
 
