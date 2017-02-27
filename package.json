@@ -4,7 +4,9 @@
   "description": "create suggession for users search",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "node tests/index.js",
+    "cov": "./node_modules/.bin/istanbul cover tests/index.js && open ./coverage/lcov-report/index.html"
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,8 @@
   },
   "devDependencies": {
     "shot": "^3.4.0",
-    "tap-spec": "^4.1.1"
+    "tap-spec": "^4.1.1",
+    "istanbul": "^0.4.5",
+    "token": "fb38b65b56b7a2a8e2935c2965ecac1261231895"
   }
 }
