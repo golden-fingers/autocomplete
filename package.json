@@ -19,10 +19,15 @@
   },
   "homepage": "https://github.com/golden-fingers/autocomplete#readme",
   "dependencies": {
+    "google-auth-library": "^0.10.0",
+    "googleapis": "^17.1.0",
     "shot": "^3.4.0",
     "tape": "^4.6.3"
   },
   "devDependencies": {
-    "istanbul": "^0.4.5"
+    "shot": "^3.4.0",
+    "tap-spec": "^4.1.1",
+    "istanbul": "^0.4.5",
+    "token": "fb38b65b56b7a2a8e2935c2965ecac1261231895"
   }
 }
